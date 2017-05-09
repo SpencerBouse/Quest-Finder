@@ -1,0 +1,24 @@
+<div>
+  <div class="col-md-4">
+    <div class='row'>
+      <p>CharacterName</p>
+      <input class='col-md-8' type='Text' ng-model="vm.user.username" value="{{vm.user.username}}">
+    </div>
+    <div class="row">
+      <p class="col-md-4">First Name:</p>
+      <p class="col-md-4">Last Name:</p>
+    </div>
+    <div class="row">
+      <input class='col-md-4' type='Text' ng-model="vm.user.first" value="{{vm.user.first}}">
+      <input class='col-md-4' type='Text' ng-model="vm.user.last" value="{{vm.user.last}}">
+    </div>
+    <p>Image Source</p>
+    <input class="col-md-12" type="text" ng-model="vm.user.imgsource" value='{{vm.user.imgsource}}'>
+    <img class="col-md-12" src="{{vm.user.imgsource}}">
+    <p>Character Description</p>
+    <textarea rows="4" cols="50" ng-model="vm.user.description">
+      {{vm.user.description}}
+    </textarea>
+     <button class="btn btn-default" ng-click='vm.saveProfile()'><i class="ra ra-key-basic ra-lg"></i> Save Profile</button>
+  </div>
+</div>

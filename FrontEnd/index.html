@@ -1,0 +1,47 @@
+
+<!doctype html>
+<html ng-app='routing'>
+
+<head>
+    <title>Quest Finder</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/rpg-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+
+<body ng-controller='mainController as vm'>
+  <header class='col-md-12'>
+    <h2 class="col-md-3">Quest Finder!</h2>
+    <ul class="col-md-4 col-md-offset-5">
+      <li>About <i class="ra ra-help"></i></li>
+      <li>Contact <i class="ra ra-quill-ink"></i></li>
+      <li ng-click="vm.logout()">LogOut <i class="ra ra-player-shot"></i></li>
+    </ul>
+  </header>
+
+
+    <main class="col-md-12">
+            <section class="col-md-12" ui-view='content'></section>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+
+    <script src='js/main.js'></script>
+    <script src='js/services/API.js'></script>
+    <script src='js/controllers/mainController.js'></script>
+    <script src='js/controllers/homeController.js'></script>
+    <script src='js/controllers/profileController.js'></script>
+    <script src='js/controllers/editController.js'></script>
+
+
+</body>
+
+</html>

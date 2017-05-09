@@ -1,0 +1,11 @@
+<div>
+  <div class="col-md-4">
+    <h2>{{vm.user.username}}</h2>
+    <h6>{{vm.user.first}} {{vm.user.last}}</h6>
+    <img class="col-md-12" src="{{vm.user.imgsource}}">
+    <p>
+      {{vm.user.description}}
+     </p>
+     <button class="btn btn-default" ng-click='vm.editProfile()'><i class="ra ra-key-basic ra-lg"></i> Edit Profile</button>
+  </div>
+</div>

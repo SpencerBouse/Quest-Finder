@@ -1,0 +1,72 @@
+header {
+  background-color: #1C1A1A;
+  height: 75px; }
+  header h2, header ul {
+    color: white; }
+  header ul {
+    display: inline-block;
+    margin-top: 25px;
+    text-align: right; }
+    header ul li {
+      display: inline-block;
+      margin-right: 20px;
+      font-size: 17px; }
+    header ul li:hover {
+      text-decoration: underline;
+      font-size: 1.5em; }
+
+#mainnav {
+  background-color: #303030;
+  z-index: 999999;
+  height: 100vh;
+  padding: 0 !important; }
+  #mainnav ul {
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 5px;
+    list-style-type: none; }
+    #mainnav ul li {
+      border-bottom: 1px solid white;
+      padding: 6px; }
+
+#groupnav {
+  margin: 0;
+  padding: 0;
+  background-color: #4a4a4a;
+  height: 100vh; }
+  #groupnav ul {
+    padding: 0;
+    list-style-type: none;
+    padding-top: 5px; }
+    #groupnav ul li {
+      border-bottom: 1px solid white;
+      padding: 6px; }
+
+#loginbox {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 15px;
+  text-align: center; }
+
+#fininput {
+  margin-bottom: 10px; }
+
+.loginerr {
+  font-style: italic;
+  color: red;
+  font-size: 20; }
+
+.pass {
+  font: small-caption;
+  font-size: 16px; }
+
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s; }
+
+main, section {
+  padding: 0 !important; }
