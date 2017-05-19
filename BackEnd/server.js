@@ -66,6 +66,11 @@ app.post('/save', function(req, res) {
             user.password = req.body.password;
             user.description = req.body.description;
             user.imgsource = req.body.imgsource;
+            user.characterName = req.body.characterName;
+            user.role = req.body.role
+            user.race = req.body.race
+            user.skype = req.body.skype
+            user.discord = req.body.discord
             user.save(function(err, user1) {
               if(err) {
                   res.json({
@@ -98,20 +103,18 @@ app.post('/signin', function(req, res) {
                 });
             } else {
                 var userModel = new User();
-                if(!req.body.imgsource){
-                  userModel.imgsource ='https://sorted.org.nz/themes/sorted/assets/images/user-icon-grey.svg'
-                }else{
-                  userModel.imgsource = req.body.imgsource;
-                }
-                if(!req.body.description){
-                  userModel.description ='No User Description'
-                }else{
-                  userModel.description = req.body.imgsource;
-                }
                 userModel.first = req.body.first;
                 userModel.last = req.body.last;
                 userModel.username = req.body.username;
                 userModel.password = req.body.password;
+                userModel.characterName ='No Charcter Name'
+                userModel.status = false
+                userModel.description ='No User Description'
+                userModel.player = 'player'
+                userModel.groups = []
+                userModel.imgsource ='https://sorted.org.nz/themes/sorted/assets/images/user-icon-grey.svg'
+                userModel.role =''
+                userModel.race =''
                 userModel.save(function(err, user) {
                     user.token = jwt.sign(user, 'SPENCERAPP');
                     user.save(function(err, user1) {
@@ -142,6 +145,143 @@ app.get('/me', ensureAuthorized,function(req, res) {
         }
     });
 });
+
+app.post('/setall', function(req, res) {
+  User.find({},function(err, users){
+    if(err){
+      res.json({
+        type: false,
+        data: 'Error occured: ' + err
+      })
+    } else {
+      users.forEach(function(user){
+        user.status = true
+        user.save(function(err, user1) {
+          if(err) {
+              res.json({
+                  type: false,
+                  data: "Error occured: " + err
+              });
+            }
+        });
+      })
+    }
+  })
+})
+
+app.post('/startSearch', function(req,res){
+  User.findOne({'_id': req.body._id}, function(err, user){
+    if(err){
+      res.json({
+        type: false,
+        data: 'Err:' + err
+      })
+    } else {
+      user.player = req.body.player
+      user.save(function(err, user1) {
+        if(err) {
+            res.json({
+                type: false,
+                data: "Error occured: " + err
+            });
+          }else{
+          res.json({
+              type: true,
+              data: user1
+          });
+        }
+      });
+    }
+  })
+})
+
+app.get('/getPlayer/:id', function(req,res){
+  let id = req.params.id;
+  User.findOne({'status': true, 'player':'player', '_id':{$ne:id}}, function(err, user){
+    if(err){
+      res.json({
+        type: false,
+        data: 'Err:' + err
+      })
+    }else if (!user) {
+      res.json({
+          type: false,
+          data: 'NO USER'
+      });
+    }
+    else {
+      user.status = false
+      user.save(function(err, user1) {
+        newuser = {'username':user1.characterName,'player':user1.player,'role':user1.role,'race':user1.race,'imgsource':user1.imgsource,'description':user1.description,'skype':user1.skype,'discord':user1.discord}
+        if(err) {
+            res.json({
+                type: false,
+                data: "Error occured: " + err
+            });
+          }else{
+          res.json({
+              type: true,
+              data: newuser
+          });
+        }
+      })
+    }
+  })
+})
+
+app.post('/getDm', function(req,res){
+  User.findOne({'status': true, 'player':'dungeonMaster'}, function(err, user){
+    if(err){
+      res.json({
+        type: false,
+        data: 'Err:' + err
+      })
+    } else {
+      user.status = false
+      user.save(function(err, user1) {
+        newuser = {'username':user1.characterName,'player':user1.player,'role':user1.role,'race':user1.race,'imgsource':user1.imgsource,'description':user1.description,'skype':user1.skype,'discord':user1.discord}
+        if(err) {
+            res.json({
+                type: false,
+                data: "Error occured: " + err
+            });
+          }else{
+          res.json({
+              type: true,
+              data: newuser
+          });
+        }
+      })
+    }
+  })
+})
+
+app.post('/saveGroup/:id', function(req,res){
+  let id = req.params.id
+  User.findOne({'_id': id}, function(err,user){
+    if(err){
+      res.json({
+        type: false,
+        data: 'Err:' + err
+      })
+    }else{
+      user.groups.push(req.body)
+      user.save(function(err, user1) {
+        if(err) {
+            res.json({
+                type: false,
+                data: "Error occured: " + err
+            });
+          }else{
+          res.json({
+              type: true,
+              data: user1
+          });
+        }
+      })
+    }
+  })
+})
 
 function ensureAuthorized(req, res, next) {
     var bearerToken;

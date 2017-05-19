@@ -42,7 +42,7 @@
             views: {
                 'allGroups': {
                     templateUrl: '../partials/groups.html',
-                    controller: 'mainController',
+                    controller: 'groupsController',
                     controllerAs: 'vm'
                 }
             }
@@ -53,7 +53,7 @@
             views: {
                 'allGroups': {
                     templateUrl: '../partials/findgroup.html',
-                    controller: 'mainController',
+                    controller: 'findController',
                     controllerAs: 'vm'
                 }
             }

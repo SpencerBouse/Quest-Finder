@@ -1,5 +1,11 @@
+html, body {
+  height: 100%;
+  font-family: 'Raleway', sans-serif;
+  background-color: #332d2c;
+  color: #E5DFC5; }
+
 header {
-  background-color: #1C1A1A;
+  background-color: #191716;
   height: 75px; }
   header h2, header ul {
     color: white; }
@@ -15,32 +21,36 @@ header {
       text-decoration: underline;
       font-size: 1.5em; }
 
-#mainnav {
-  background-color: #303030;
-  z-index: 999999;
-  height: 100vh;
-  padding: 0 !important; }
-  #mainnav ul {
-    color: white;
-    margin: 0px;
-    padding: 0px;
-    padding-top: 5px;
-    list-style-type: none; }
-    #mainnav ul li {
-      border-bottom: 1px solid white;
-      padding: 6px; }
+#homenav {
+  height: 100%; }
+  #homenav #mainnav {
+    background-color: #1d1a19;
+    z-index: 999999;
+    height: 100%;
+    padding: 0 !important; }
+    #homenav #mainnav ul {
+      color: white;
+      margin: 0px;
+      padding: 0px;
+      padding-top: 5px;
+      list-style-type: none; }
+      #homenav #mainnav ul li {
+        border-bottom: 1px solid #303030;
+        padding: 6px; }
+        #homenav #mainnav ul li a {
+          color: #E5DFC5; }
 
 #groupnav {
   margin: 0;
   padding: 0;
-  background-color: #4a4a4a;
+  background-color: #252120;
   height: 100vh; }
   #groupnav ul {
     padding: 0;
     list-style-type: none;
     padding-top: 5px; }
     #groupnav ul li {
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid #303030;
       padding: 6px; }
 
 #loginbox {
@@ -53,9 +63,35 @@ header {
 #fininput {
   margin-bottom: 10px; }
 
+#userHolder img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 5px; }
+
+#findGroup select, #findGroup button {
+  color: #191716; }
+
+#findGroup select, #findGroup h3 {
+  margin-bottom: 15px; }
+
+#groupsMessage {
+  padding-top: 15px;
+  padding-left: 15px;
+  margin: 0; }
+
+#profileImg img {
+  border-radius: 20px;
+  padding: 10px; }
+
+.active {
+  color: #AA2F41; }
+
 .loginerr {
   font-style: italic;
   color: red;
+  font-size: 20; }
+
+.loginsucc {
   font-size: 20; }
 
 .pass {
@@ -69,4 +105,5 @@ header {
   animation-duration: .5s; }
 
 main, section {
-  padding: 0 !important; }
+  padding: 0 !important;
+  height: 100%; }

@@ -1,24 +1,69 @@
 <div>
-  <div class="col-md-4">
-    <div class='row'>
-      <p>CharacterName</p>
-      <input class='col-md-8' type='Text' ng-model="vm.user.username" value="{{vm.user.username}}">
+    <div class="col-md-6">
+        <h3>{{vm.user.username}}</h3>
+        <hr>
+        <div class='row'>
+            <p>CharacterName</p>
+            <input class='col-md-8' type='Text' ng-model="vm.user.characterName" value="{{vm.user.characterName}}">
+        </div>
+        <div class="row">
+            <p class="col-md-4">First Name:</p>
+            <p class="col-md-4">Last Name:</p>
+        </div>
+        <div class="row">
+            <input class='col-md-4' type='Text' ng-model="vm.user.first" value="{{vm.user.first}}">
+            <input class='col-md-4' type='Text' ng-model="vm.user.last" value="{{vm.user.last}}">
+        </div>
+        <div class="row">
+            <p class="col-md-4">Skype Name:</p>
+            <p class="col-md-4">Discord Name:</p>
+        </div>
+        <div class="row">
+            <input class='col-md-4' type='Text' ng-model="vm.user.skype" value="{{vm.user.skype}}">
+            <input class='col-md-4' type='Text' ng-model="vm.user.discord" value="{{vm.user.discord}}">
+        </div>
+        <div class="row">
+          <p class="col-md-4">Race:</p>
+          <p class="col-md-4">Class:</p>
+        </div>
+        <div class="row">
+          <select class='col-md-4' ng-model="vm.user.race" required>
+            <option value="">None</option>
+            <option value="Dwarf">Dwarf</option>
+            <option value="Elf">Elf</option>
+            <option value="Halfling">Halfling</option>
+            <option value="Human">Human</option>
+            <option value="Dragonborn">DragonBorn</option>
+            <option value="Gnome">Gnome</option>
+            <option value="Halfelf">Half-Elf</option>
+            <option value="Halforc">Half-Orc</option>
+            <option value="Tiefling">Tiefling</option>
+          </select>
+          <select class='col-md-4' ng-model="vm.user.role" required>
+            <option value="">None</option>
+            <option value="Barbarian">Barbarian</option>
+            <option value="Bard">Bard</option>
+            <option value="Cleric">Cleric</option>
+            <option value="Druid">Druid</option>
+            <option value="Fighter">Fighter</option>
+            <option value="Monk">Monk</option>
+            <option value="Paladin">Paladin</option>
+            <option value="Ranger">Ranger</option>
+            <option value="Rouge">Rouge</option>
+            <option value="Sorcerer">Sorcerer</option>
+            <option value="Warlock">Warlock</option>
+            <option value="Wizard">Wizard</option>
+          </select>
+        </div>
+        <p>Character Description/Additional Info</p>
+        <textarea rows="4" cols="50" ng-model="vm.user.description">
+          {{vm.user.description}}
+        </textarea>
+        <button class="btn btn-default col-md-5" ng-click='vm.saveProfile()'><i class="ra ra-key-basic ra-lg"></i> Save Character</button>
     </div>
-    <div class="row">
-      <p class="col-md-4">First Name:</p>
-      <p class="col-md-4">Last Name:</p>
+    <div class='col-md-6'>
+      <p>Image Source</p>
+      <input class="col-md-12" type="text" ng-model="vm.user.imgsource" value='{{vm.user.imgsource}}'>
+      <img class="col-md-12" src="{{vm.user.imgsource}}">
     </div>
-    <div class="row">
-      <input class='col-md-4' type='Text' ng-model="vm.user.first" value="{{vm.user.first}}">
-      <input class='col-md-4' type='Text' ng-model="vm.user.last" value="{{vm.user.last}}">
-    </div>
-    <p>Image Source</p>
-    <input class="col-md-12" type="text" ng-model="vm.user.imgsource" value='{{vm.user.imgsource}}'>
-    <img class="col-md-12" src="{{vm.user.imgsource}}">
-    <p>Character Description</p>
-    <textarea rows="4" cols="50" ng-model="vm.user.description">
-      {{vm.user.description}}
-    </textarea>
-     <button class="btn btn-default" ng-click='vm.saveProfile()'><i class="ra ra-key-basic ra-lg"></i> Save Profile</button>
-  </div>
 </div>

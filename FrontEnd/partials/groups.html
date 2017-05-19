@@ -1,9 +1,21 @@
 <div>
-  <div id="groupnav" class="col-md-1 animated slideInLeft">
+  <div id="groupnav" ng-if="vm.showvar" class="col-md-1 animated slideInLeft">
     <ul>
-      <li><a ui-sref="allgroups">Group 1</a></li>
-      <li><a ui-sref="allgroups">Group 2</a></li>
-      <li><a ui-sref="allgroups">Group 3</a></li>
+      <li ng-repeat="groups in vm.user.groups track by $index" ng-click='vm.getGroup($index); vm.select(groups)' ng-class="{active: vm.isActive(groups)}">Group {{$index + 1}}</li>
     </ul>
+  </div>
+  <h2 id="groupsMessage">{{vm.message}}</h2>
+  <div class='col-md-11'>
+    <div id='userHolder'class="col-md-3" ng-repeat="users in vm.currentGroup track by $index">
+      <h3>{{users.username}}</h3>
+      <h5>{{users.player}}</h5>
+      <hr>
+      <img src="{{users.imgsource}}">
+      <h5>Description/Additional Info</h5>
+      <p>{{users.description}}</p>
+      <h5>Race: {{users.race}}</h5>
+      <h5>Class: {{users.role}}</h5>
+      <p>Skype: {{users.skype}}</p>
+      <p>Discord: {{users.discord}}</p>
   </div>
 </div>

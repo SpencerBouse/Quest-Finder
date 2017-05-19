@@ -20,12 +20,16 @@ const UserSchema   = new Schema({
       type: String,
       required: true
       },
-    imgsource: {
-      type: String
-      },
-    description: {
-      type: String
-      },
+    imgsource: String,
+    description: String,
+    characterName: String,
+    role: String,
+    race: String,
+    status: Boolean,
+    player: String,
+    skype: String,
+    discord: String,
+    groups: Array,
     token: String
 });
 

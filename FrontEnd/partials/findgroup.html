@@ -1,10 +1,16 @@
 <div>
-  <div class="col-md-5">
-    <form>
-      <input type="text" class="col-md-7">
-      <input type="text" class="col-md-7">
-      <input type="text" class="col-md-7">
-      <button type="submit" class="col-md-7">Find Group</button>
+  <div id='findGroup' class="col-md-5">
+    <form ng-submit='vm.startSearch()'>
+      <p class="loginerr">{{vm.message}}</p>
+      <h3>Dungeon Master or Player?</h3>
+      <select class='col-md-6' ng-model="vm.user.player">
+        <option value="">None</option>
+        <option value="dungeonMaster">Dungeon Master</option>
+        <option value="player">Player</option>
+      </select>
+      <p class="loginsucc col-md-12">{{vm.messagesucc}}</p>
+    <button type="submit" class="btn btn-default col-md-7">Find Group</button>
     </form>
+    <!-- <button ng-click="vm.setAllTrue()" class="col-md-7">Shh Secret SetAll Button</button> -->
   </div>
 </div>
