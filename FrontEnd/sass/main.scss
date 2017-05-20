@@ -10,9 +10,7 @@ html,body{
 header{
   background-color: #191716;
   height: 75px;
-  h2,ul{
-    color: white;
-  }
+
   ul{
     display: inline-block;
     margin-top: 25px;
@@ -36,7 +34,6 @@ header{
     height: 100%;
     padding: 0 !important;
     ul{
-      color: white;
       margin:0px;
       padding: 0px;
       padding-top: 5px;
@@ -72,6 +69,16 @@ header{
   padding: 10px;
   margin-top: 15px;
   text-align: center;
+  background-color: #191716;
+  input{
+    color: black;
+  }
+  p{
+    a{
+      color: #E5DFC5;
+      margin-top: 10px;
+    }
+  }
 }
 #fininput{
   margin-bottom: 10px;
@@ -100,6 +107,14 @@ header{
   img{
     border-radius: 20px;
     padding: 10px;
+  }
+}
+#editProfile{
+  input,select,textarea{
+    color: black
+  }
+  img{
+    margin-top: 10px;
   }
 }
 .active{
