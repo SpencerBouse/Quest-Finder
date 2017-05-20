@@ -6,7 +6,7 @@
   </div>
   <h2 id="groupsMessage">{{vm.message}}</h2>
   <div class='col-md-11'>
-    <div id='userHolder'class="col-md-3" ng-repeat="users in vm.currentGroup track by $index">
+    <div id='userHolder'class="col-md-3 slideInUp animated" ng-repeat="users in vm.currentGroup track by $index">
       <h3>{{users.username}}</h3>
       <h5>{{users.player}}</h5>
       <hr>
