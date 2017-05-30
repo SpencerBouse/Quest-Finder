@@ -83,7 +83,7 @@
                 var p3 = new Promise(function(resolve,reject){
                   setTimeout(function(){
                     resolve('three')
-                  },1200)
+                  },700)
                 })
                 Promise.all([p1,p2,p3]).then(val=>
                   vm.saveGroup(group)
