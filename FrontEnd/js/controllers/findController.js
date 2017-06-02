@@ -29,10 +29,10 @@
               vm.message = 'Please fill out Profile Page'
             }else{
               vm.message=''
-              var group =[]
+              vm.user.groups = []
+              var group = {name: vm.groupName, players:[], user:vm.user}
               let counterone = 0
               let countertwo = 0
-              vm.user.groups = []
               let start = API.startSearch(vm.user)
               start.then(response=>{
                 if(response.data.data.player === 'dungeonMaster'){
@@ -48,7 +48,7 @@
                     let getPlayers = API.getPlayer(vm.user)
                     getPlayers.then(res=>{
                       if(res.data.type){
-                        group.push(res.data.data)
+                        group.players.push(res.data.data)
                         vm.messagesucc = 'Group found, continue to groups tab to see groups.'
                         vm.message = ''
                         vm.validGroup = true
@@ -67,7 +67,7 @@
                     let getDm = API.getDm(response.data)
                     getDm.then(res=>{
                       if(res.data.type){
-                        group.push(res.data.data)
+                        group.players.push(res.data.data)
                         vm.message = ''
                         vm.messagesucc = 'Group found, continue to groups tab to see groups.'
                         vm.validGroup = true
@@ -83,7 +83,7 @@
                 var p3 = new Promise(function(resolve,reject){
                   setTimeout(function(){
                     resolve('three')
-                  },700)
+                  },1000)
                 })
                 Promise.all([p1,p2,p3]).then(val=>
                   vm.saveGroup(group)
@@ -94,7 +94,6 @@
           }
           vm.saveGroup = function(group){
             if(vm.validGroup){
-              group.push(vm.user)
               let groupSave = API.groupSave(group, vm.user)
               groupSave.then(res=>{
                 console.log(res)
