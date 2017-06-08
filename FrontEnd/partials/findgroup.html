@@ -3,11 +3,13 @@
     <form ng-submit='vm.startSearch()'>
       <p class="loginerr">{{vm.message}}</p>
       <h3>Dungeon Master or Player?</h3>
-      <select class='col-md-6' ng-model="vm.user.player">
+      <select ng-model="vm.user.player">
         <option value="">None</option>
         <option value="dungeonMaster">Dungeon Master</option>
         <option value="player">Player</option>
       </select>
+      <h3>Group Name</h3>
+      <input id="groupName" type='text' ng-model='vm.groupName'>
       <p class="loginsucc col-md-12">{{vm.messagesucc}}</p>
     <button type="submit" class="btn btn-default col-md-7">Find Group</button>
     </form>

@@ -92,6 +92,9 @@ header {
 #editProfile img {
   margin-top: 10px; }
 
+#groupName {
+  color: black; }
+
 .active {
   color: #AA2F41; }
 
